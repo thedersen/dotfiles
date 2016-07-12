@@ -44,3 +44,6 @@ complete -o default -o nospace -F _git g
 
 # Un-prefix coreutils
 PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"

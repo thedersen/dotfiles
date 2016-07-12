@@ -18,7 +18,7 @@ install wget --enable-iri
 
 # Install everything else
 install imagemagick
-install node
+install nvm
 install tree
 install ios-sim
 install phantomjs
