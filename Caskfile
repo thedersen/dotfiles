@@ -4,20 +4,17 @@
 install caskroom/cask/brew-cask
 tap caskroom/versions
 
-cask install dropbox 2> /dev/null
-cask install google-chrome 2> /dev/null
-cask install google-chrome-canary 2> /dev/null
-cask install opera 2> /dev/null
-cask install sublime-text 2> /dev/null
-cask install transmission 2> /dev/null
-cask install atom> /dev/null
 cask install adobe-creative-cloud> /dev/null
 cask install alfred> /dev/null
-cask install cyberduck> /dev/null
-cask install google-drive> /dev/null
-cask install heroku-toolbelt> /dev/null
-cask install rdio> /dev/null
-cask install skype> /dev/null
-cask install vmware-fusion> /dev/null
-cask install appcleaner> /dev/null
+cask install atom> /dev/null
+cask install docker> /dev/null
+cask install dropbox> /dev/null
 cask install firefox> /dev/null
+cask install goodsync> /dev/null
+cask install google-chrome> /dev/null
+cask install google-drive> /dev/null
+cask install iterm2> /dev/null
+cask install opera> /dev/null
+cask install screenhero> /dev/null
+cask install sketch> /dev/null
+cask install slack> /dev/null
