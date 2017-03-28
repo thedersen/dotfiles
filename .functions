@@ -57,55 +57,6 @@ function httpcompression() {
 	encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
 }
 
-# Syntax-highlight JSON strings or files
-# Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
-function json() {
-	if [ -t 0 ]; then # argument
-		python -mjson.tool <<< "$*" | pygmentize -l javascript
-	else # pipe
-		python -mjson.tool | pygmentize -l javascript
-	fi
-}
-
-# Escape UTF-8 characters into their 3-byte format
-function escape() {
-	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-	echo # newline
-}
-
-# Decode \x{ABCD}-style Unicode escape sequences
-function unidecode() {
-	perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-	echo # newline
-}
-
-# Get a character’s Unicode code point
-function codepoint() {
-	perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
-	echo # newline
-}
-
-# Add note to Notes.app (OS X 10.8)
-# Usage: `note 'foo'` or `echo 'foo' | note`
-function note() {
-	local text
-	if [ -t 0 ]; then # argument
-		text="$1"
-	else # pipe
-		text=$(cat)
-	fi
-	body=$(echo "$text" | sed -E 's|$|<br>|g')
-	osascript >/dev/null <<EOF
-tell application "Notes"
-	tell account "iCloud"
-		tell folder "Notes"
-			make new note with properties {name:"$text", body:"$body"}
-		end tell
-	end tell
-end tell
-EOF
-}
-
 # Add reminder to Reminders.app (OS X 10.8)
 # Usage: `remind 'foo'` or `echo 'foo' | remind`
 function remind() {
@@ -129,4 +80,12 @@ function unquarantine() {
 	for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine; do
 		xattr -r -d "$attribute" "$@"
 	done
+}
+
+function cc() {
+  for ((i=1; i<=$1; i++)); do
+     echo "Some content" > "$RANDOM.txt"
+     git add .
+     git commit -m "`curl -s http://whatthecommit.com | perl -p0e '($_)=m{<p>(.+?)</p>}s'`"
+  done
 }

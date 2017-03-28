@@ -1,6 +1,7 @@
 [alias]
   a = add -A
   ai = add -i
+  ap = add -p
   co = checkout
   c = commit
   cm = commit -m
@@ -22,7 +23,6 @@
   fl = log -u
   find = !git ls-files | grep -i
   grep = grep -Ii
-  x = !gitx --all
   ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
   al = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t=> \\2/' | sort
 

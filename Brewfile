@@ -12,19 +12,13 @@ install coreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 install findutils
 
-# Install wget with IRI support
-install wget --enable-iri
-
-
 # Install everything else
-install imagemagick
 install tree
+install watch
 install ios-sim
-install phantomjs
 install hub
 install vim --override-system-vi
 install bash-completion
-install hub
 install httpry
 
 # Remove outdated versions from the cellar

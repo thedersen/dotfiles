@@ -8,19 +8,13 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Shortcuts
-alias db="cd ~/Dropbox"
-alias dl="cd ~/Downloads"
 alias dev="cd ~/dev"
 alias work="cd ~/dev/work"
-alias talks="cd ~/Dropbox/talks/"
 alias g="git"
-alias v="vim"
-
-# Functions
-alias cc=create-commits.sh
-alias rg="rm -rf * .git && git init"
+alias s="sphynx"
 
 # Live
+alias rg="rm -rf * .git && git init"
 alias livelog="watch --color --interval=1 --no-title 'git l --all'"
 alias livegit="while true; do clear; tree .git;sleep 1;done"
 alias livetree="while true; do clear; tree;sleep 1;done"
@@ -51,7 +45,7 @@ alias sudo='sudo '
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
 # Enhanced WHOIS lookups
@@ -95,10 +89,6 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
-
-# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
-# (useful when executing time-consuming commands)
-alias badge="tput bel"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do

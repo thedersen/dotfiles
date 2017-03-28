@@ -90,18 +90,6 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-" Disable the arrow keys :)
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
-
 " Resize vertical split (,+/-)
 nnoremap <silent> <Leader>+ :exe "vertical resize +1"<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize -1"<CR>
@@ -110,13 +98,6 @@ nnoremap <silent> <Leader>- :exe "vertical resize -1"<CR>
 filetype on
 filetype plugin on
 filetype indent on
-" Load all bundles
-call pathogen#infect()
-
-" Load color scheme
-color wombat256mod
-" Make comments darker
-hi Comment ctermfg=235
 
 " Treat .json files as .js
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript

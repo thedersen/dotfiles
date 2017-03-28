@@ -1,6 +1,4 @@
-# Add `~/bin` to the `$PATH`
-export PATH="~/bin:$PATH"
-
+echo $PATH
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -25,10 +23,6 @@ for option in autocd globstar; do
 	shopt -s "$option" 2> /dev/null
 done
 
-# Prefer US English and use UTF-8
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
-
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
@@ -45,6 +39,11 @@ complete -o default -o nospace -F _git g
 # Un-prefix coreutils
 PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
-# Loads nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+echo $PATH
+
+# Add `~/.yarn/bin` to the `$PATH`
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$PATH:`yarn global bin`"
+
+echo $PATH
