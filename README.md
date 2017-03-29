@@ -62,7 +62,7 @@ git config --global user.name "thedersen"
 git config --global user.email "thedersen@gmail.com"
 ```
 
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/thedersen/dotfiles/fork_select) instead, though.
+You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles) instead, though.
 
 ### Sensible macOS defaults
 

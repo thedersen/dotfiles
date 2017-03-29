@@ -1,3 +1,6 @@
+# Install Command Line Tools (CLT) for Xcode
+xcode-select --install
+
 # Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -16,8 +19,6 @@ mkdir ~/dev/me
 # Clone this repository
 git clone https://github.com/thedersen/dotfiles.git ~/dev/dotfiles
 
-source ~/dev/dotfiles/bootstrap.sh
-
 # Install n
 curl -L https://git.io/n-install | bash
 
@@ -28,3 +29,6 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 ~/dev/dotfiles/brew.sh
 ~/dev/dotfiles/cask.sh
 ~/dev/dotfiles/macOS.sh
+
+# Finally, bootstrap all configuration
+source ~/dev/dotfiles/bootstrap.sh
