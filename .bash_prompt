@@ -1,6 +1,3 @@
-source ~/.git-completion.bash
-source ~/.git-prompt.sh
-
 GREY=$(tput setaf 8)
 GOLD=$(tput setaf 3)
 TEAL=$(tput setaf 6)
@@ -10,36 +7,6 @@ RESET=$(tput sgr0)
 COLOR_U=$GREY
 COLOR_W=$GOLD
 COLOR_GIT=$TEAL
-
-__git_status() {
-	local IN_WORKING_DIR="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
-	local IN_GIT_DIR="$(git rev-parse --is-inside-git-dir 2>/dev/null)"
-
-	if [ "${IN_WORKING_DIR}" ]; then
-	  local BRANCH="$(git rev-parse --symbolic-full-name --abbrev-ref HEAD 2>/dev/null)"
-	  if [ "$BRANCH" == HEAD ]; then
-	  	HEAD="$(git rev-parse --short HEAD 2> /dev/null)"
-	  	if [ -n "${HEAD}" ]; then
-	  		BRANCH="detached HEAD $(git rev-parse --short HEAD 2> /dev/null)"
-	  		COLOR_GIT=$PINK
-	  	else
-	  		BRANCH="empty"
-	  	fi
-	  fi
-
-	  echo -n "${COLOR_GIT}(${BRANCH}"
-
-	  local BEHIND="$(git rev-list --count --left-only @{upstream}...HEAD 2>/dev/null)"
-	  local AHEAD="$(git rev-list --count --right-only @{upstream}...HEAD 2>/dev/null)"
-
-	  if [ -n "${BEHIND}" ]; then
-	  	echo -n " -${BEHIND} +${AHEAD}"
-	  fi
-	  echo -n ")"
-	elif [ "${IN_GIT_DIR}" ]; then
-		echo "${PINK}(.git dir!)"
-	fi
-}
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=false

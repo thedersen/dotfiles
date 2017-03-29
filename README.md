@@ -2,12 +2,29 @@
 
 ## Installation
 
+**Warning:** If you want to give these dotfiles a try, you should really fork the [original repository](https://github.com/mathiasbynens/dotfiles) from [Mathias Bynens](http://mathiasbynens.be/).
+
+Run this on a new machine:
+
+```bash
+curl -L https://raw.githubusercontent.com/thedersen/dotfiles/master/install.sh | bash
+```
+
+or, follow instructions below for a more manual process.
+
+### Prerequisites
+
+* Install [Homebrew](http://brew.sh/)
+* `brew install git`
+
 ### Using Git and the bootstrap script
 
 You can clone the repository wherever you want. The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
-git clone https://github.com/thedersen/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone https://github.com/thedersen/dotfiles.git
+cd dotfiles
+source bootstrap.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
@@ -19,7 +36,17 @@ source bootstrap.sh
 Alternatively, to update while avoiding the confirmation prompt:
 
 ```bash
-set -- -f; source bootstrap.sh
+source bootstrap.sh -f
+```
+
+### Specify the $PATH
+
+If ~/.path exists, it will be sourced along with the other files, before any feature testing (such as detecting which version of ls is being used) takes place.
+
+Here’s an example ~/.path file that adds /usr/local/bin to the $PATH:
+
+```bash
+export PATH="/usr/local/bin:$PATH"
 ```
 
 ### Add custom commands without creating a new fork
@@ -37,22 +64,20 @@ git config --global user.email "thedersen@gmail.com"
 
 You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/thedersen/dotfiles/fork_select) instead, though.
 
-### Sensible OS X defaults
+### Sensible macOS defaults
 
-When setting up a new Mac, you may want to set some sensible OS X defaults:
+When setting up a new Mac, you may want to set some sensible macOS defaults:
 
 ```bash
-./.osx
+./macOS.sh
 ```
-
-Remember to change the machine name in the script before running this.
 
 ### Install Homebrew formulae
 
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
 
 ```bash
-brew bundle ~/Brewfile
+./brew.sh
 ```
 
 ### Install native apps with `brew cask`
@@ -60,7 +85,7 @@ brew bundle ~/Brewfile
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
 
 ```bash
-brew bundle ~/Caskfile
+./cask.sh
 ```
 
 ## Thanks to…
