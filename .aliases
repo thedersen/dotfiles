@@ -37,9 +37,6 @@ alias la="ls -la ${colorflag}"
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
 
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 

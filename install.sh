@@ -8,13 +8,12 @@ xcode-select --install
 brew install git
 
 # Make some directories
-mkdir ~/dev
-mkdir ~/dev/dotfiles
-mkdir ~/dev/os
-mkdir ~/dev/play
-mkdir ~/dev/work
-mkdir ~/dev/talk
-mkdir ~/dev/me
+mkdir -p ~/dev/dotfiles
+mkdir -p ~/dev/os
+mkdir -p ~/dev/play
+mkdir -p ~/dev/work
+mkdir -p ~/dev/talk
+mkdir -p ~/dev/me
 
 # Clone this repository
 git clone https://github.com/thedersen/dotfiles.git ~/dev/dotfiles
@@ -26,9 +25,9 @@ curl -L https://git.io/n-install | bash
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
 # Run other install scripts
-~/dev/dotfiles/brew.sh
-~/dev/dotfiles/cask.sh
-~/dev/dotfiles/macOS.sh
+source ~/dev/dotfiles/brew.sh
+source ~/dev/dotfiles/cask.sh
+source ~/dev/dotfiles/macOS.sh
 
 # Finally, bootstrap all configuration
 source ~/dev/dotfiles/bootstrap.sh
