@@ -23,8 +23,8 @@
   fl = log -u
   find = !git ls-files | grep -i
   grep = grep -Ii
-  ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore
   al = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t=> \\2/' | sort
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; !([ ! -e .gitignore ] && touch .gitignore); gi >> .gitignore"
 
 [apply]
 	# Detect whitespace errors when applying a patch
