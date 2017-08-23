@@ -19,6 +19,5 @@ brew cask install screenhero
 brew cask install sketch
 brew cask install slack
 brew cask install postman
-brew cask install spotify
 
 brew cask cleanup
