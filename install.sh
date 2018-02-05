@@ -21,9 +21,6 @@ git clone https://github.com/thedersen/dotfiles.git ~/dev/dotfiles
 # Install n
 curl -L https://git.io/n-install | bash
 
-# Install yarn
-curl -o- -L https://yarnpkg.com/install.sh | bash
-
 # Run other install scripts
 source ~/dev/dotfiles/brew.sh
 source ~/dev/dotfiles/cask.sh

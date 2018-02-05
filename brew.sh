@@ -44,6 +44,7 @@ brew install hub
 brew install ios-sim --ignore-dependencies # skip node
 brew install httpry
 brew install z
+brew install yarn --without-node
 
 # Remove outdated versions from the cellar.
 brew cleanup
