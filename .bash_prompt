@@ -13,4 +13,4 @@ GIT_PS1_SHOWSTASHSTATE=false
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="verbose"
 
-export PS1='\n${COLOR_U}\u@\h ${COLOR_W}\w${COLOR_GIT}$(__git_ps1) ${COLOR_U}$(node --version)${RESET}\n$ '
+export PS1='\n${COLOR_U}\u@\h ${COLOR_W}\w${COLOR_GIT}$(__git_ps1) ${COLOR_U}$(node --version) AWS_PROFILE=${AWS_PROFILE}${RESET}\n$ '
