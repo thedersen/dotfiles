@@ -1,6 +1,3 @@
-# Use (git) hub
-alias git=hub
-
 # Easier navigation:
 alias ..="cd .."
 alias ...="cd ../.."
@@ -11,7 +8,6 @@ alias .....="cd ../../../.."
 alias dev="cd ~/dev"
 alias work="cd ~/dev/work"
 alias g="git"
-alias s="sphynx"
 
 # Live
 alias rg="rm -rf * .git && git init"

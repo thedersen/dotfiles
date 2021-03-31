@@ -2,7 +2,7 @@
 xcode-select --install
 
 # Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install git
 brew install git
@@ -19,12 +19,12 @@ mkdir -p ~/dev/me
 git clone https://github.com/thedersen/dotfiles.git ~/dev/dotfiles
 
 # Install n
-curl -L https://git.io/n-install | bash
+curl -L https://git.io/n-install | zsh
 
 # Run other install scripts
 source ~/dev/dotfiles/brew.sh
-source ~/dev/dotfiles/cask.sh
 source ~/dev/dotfiles/macOS.sh
+source ~/dev/dotfiles/aws-profile.sh
 
 # Finally, bootstrap all configuration
 source ~/dev/dotfiles/bootstrap.sh

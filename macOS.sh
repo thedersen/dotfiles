@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Ensure we got a computer name
-read -p "What is the name of this computer? ";
+read "REPLY?What is the name of this computer? ";
 if [[ -z "$REPLY" ]] ; then
     echo 'You must specify computer name'
     exit 1
