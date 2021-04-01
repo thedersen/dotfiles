@@ -4,8 +4,16 @@ brew install aws-vault
 pip3 install --upgrade boto3
 pip3 install --upgrade gimme-aws-creds
 
-curl https://raw.githubusercontent.com/thedersen/awscli-profile-credential-helpers/main/aws-console --output /usr/local/bin/aws-console
-curl https://raw.githubusercontent.com/thedersen/awscli-profile-credential-helpers/main/aws-refresh-credentials --output /usr/local/bin/aws-refresh-credentials
-curl https://raw.githubusercontent.com/thedersen/awscli-profile-credential-helpers/main/aws-whoami --output /usr/local/bin/aws-whoami
-curl https://raw.githubusercontent.com/thedersen/awscli-profile-credential-helpers/main/aws-console-completion.bash --output /usr/local/share/zsh/site-functions/aws-console-completion.bash
-curl https://raw.githubusercontent.com/thedersen/awscli-profile-credential-helpers/main/aws-profile-completion.bash --output /usr/local/share/zsh/site-functions/aws-profile-completion.bash
+REPO=https://raw.githubusercontent.com/thedersen/awscli-profile-credential-helpers/main
+BIN="$(brew --prefix)/bin"
+COMPLETION="$(brew --prefix)/etc/bash_completion.d"
+
+curl "${REPO}/aws-console" --output "${BIN}/aws-console"
+curl "${REPO}/aws-refresh-credentials" --output "${BIN}/aws-refresh-credentials"
+curl "${REPO}/aws-whoami" --output "${BIN}/aws-whoami"
+curl "${REPO}/aws-console-completion.bash" --output "${COMPLETION}/aws-console-completion.bash"
+curl "${REPO}/aws-profile-completion.bash" --output "${COMPLETION}/aws-profile-completion.bash"
+
+chmod +x "${BIN}/aws-console"
+chmod +x "${BIN}/aws-refresh-credentials"
+chmod +x "${BIN}/aws-whoami"

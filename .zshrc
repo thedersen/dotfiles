@@ -29,24 +29,28 @@ setopt HIST_REDUCE_BLANKS
 # Enable spelling correction for commands
 setopt CORRECT
 
-# zsh-completions
+# Add zsh-completions to fpath
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 # Initialize completion
 autoload -Uz compinit && compinit
 # case insensitive path-completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-# load bashcompinit for some old bash completions
+# load bashcompinit for bash completions
 autoload bashcompinit && bashcompinit
-# add tab completion for some bash commands
-[[ -f "$(brew --prefix)/share/zsh/site-functions/aws-console-completion.bash" ]] && source "$(brew --prefix)/share/zsh/site-functions/aws-console-completion.bash"
-[[ -f "$(brew --prefix)/share/zsh/site-functions/aws-profile-completion.bash" ]] && source "$(brew --prefix)/share/zsh/site-functions/aws-profile-completion.bash"
+# load some bash tab completions
+for file in "$(brew --prefix)/etc/bash_completion.d/"{aws-console-completion.bash,aws-profile-completion.bash}; do
+  [ -r "$file" ] && source "$file"
+done
 
 # Load git prompt
 source "$(brew --prefix)/opt/zsh-git-prompt/zshrc.sh"
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[teal]%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}%{✔%G%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[yellow]%}%{●%G%}"
+
 # Allow expansion in prompt
 setopt PROMPT_SUBST
 # configure prompt
