@@ -19,6 +19,8 @@ setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 # adds commands as they are typed, not at shell exit
 setopt INC_APPEND_HISTORY
+# do not store duplications
+setopt HIST_IGNORE_DUPS
 # expire duplicates first
 setopt HIST_EXPIRE_DUPS_FIRST
 # ignore duplicates when searching

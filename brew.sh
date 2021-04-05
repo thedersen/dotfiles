@@ -10,6 +10,7 @@ brew upgrade
 brew install tree
 brew install watch
 brew install httpry
+brew install ffmpeg
 brew install python
 brew install awscli
 brew install aws/tap/aws-sam-cli
