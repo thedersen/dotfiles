@@ -29,7 +29,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 
 # Enable spelling correction for commands
-setopt CORRECT
+#setopt CORRECT
 
 # Add zsh-completions to fpath
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH

@@ -74,5 +74,6 @@
 	remote = origin
 	merge = refs/heads/main
 
-[credential]
-  helper = osxkeychain
+[init]
+  defaultBranch = main
+
