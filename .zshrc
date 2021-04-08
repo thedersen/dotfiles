@@ -55,13 +55,14 @@ ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[yellow]%}%{●%G%}"
 
 # Allow expansion in prompt
 setopt PROMPT_SUBST
-# configure prompt
-case "$AWS_PROFILE" in
-  *-production) AWS_PROMPT="%K{red}%F{white}AWS_PROFILE: ${AWS_PROFILE}%f%k" ;;
-  *) AWS_PROMPT="%F{8}AWS_PROFILE: ${AWS_PROFILE:=<not set>}%f" ;;
-esac
+function aws_prompt() {
+  case "$AWS_PROFILE" in
+    *-production) echo "%K{red}%F{white}AWS_PROFILE: ${AWS_PROFILE}%f%k" ;;
+    *) echo "%F{8}AWS_PROFILE: ${AWS_PROFILE:=<not set>}%f" ;;
+  esac
+}
 PROMPT='
-%F{yellow}%~ %F{8}|%F{6} $(git_super_status) %F{8}| node $(node --version) |%f ${AWS_PROMPT}
+%F{yellow}%~ %F{8}|%F{6} $(git_super_status) %F{8}| node $(node --version) |%f $(aws_prompt)
 %# '
 
 # N
