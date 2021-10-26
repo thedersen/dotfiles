@@ -20,13 +20,11 @@ brew install zsh-git-prompt
 brew install adobe-creative-cloud
 brew install docker
 brew install dropbox
-brew install duet
 brew install firefox
 brew install goodsync
 brew install google-chrome
 brew install google-drive
 brew install iterm2
-brew install opera
 brew install slack
 brew install postman
 brew install visual-studio-code
