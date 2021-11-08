@@ -18,12 +18,11 @@ brew install zsh-git-prompt
 
 # Install native apps
 brew install adobe-creative-cloud
-brew install docker
+brew install --cask docker
 brew install dropbox
 brew install firefox
 brew install goodsync
 brew install google-chrome
-brew install google-drive
 brew install iterm2
 brew install slack
 brew install postman
