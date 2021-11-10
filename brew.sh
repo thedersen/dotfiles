@@ -19,13 +19,10 @@ brew install zsh-git-prompt
 # Install native apps
 brew install adobe-creative-cloud
 brew install --cask docker
-brew install dropbox
 brew install firefox
-brew install goodsync
 brew install google-chrome
 brew install iterm2
 brew install slack
-brew install postman
 brew install visual-studio-code
 
 # Remove outdated versions from the cellar.
