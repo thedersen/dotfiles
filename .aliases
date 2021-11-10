@@ -6,7 +6,6 @@ alias .....="cd ../../../.."
 
 # Shortcuts
 alias dev="cd ~/dev"
-alias work="cd ~/dev/work"
 alias g="git"
 
 # Live
