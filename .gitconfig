@@ -59,6 +59,9 @@
 [push]
   default = matching
 
+[pull]
+  rebase = true
+
 [mergetool]
   keepBackup = false
   prompt = false
