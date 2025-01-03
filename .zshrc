@@ -61,6 +61,7 @@ function aws_prompt() {
     *) echo "%F{8}AWS_PROFILE: ${AWS_PROFILE:=<not set>}%f" ;;
   esac
 }
+
 PROMPT='
 %F{yellow}%~ %F{8}|%F{6} $(git_super_status) %F{8}| node $(node --version) |%f $(aws_prompt)
 %# '
@@ -68,5 +69,3 @@ PROMPT='
 # N
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# npx as default fallback command
-source <(npx --shell-auto-fallback zsh)
