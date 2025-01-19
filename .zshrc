@@ -44,23 +44,21 @@ for file in "$(brew --prefix)/etc/bash_completion.d/"{aws-console-completion.bas
   [ -r "$file" ] && source "$file"
 done
 
-# Load git prompt
-source "$(brew --prefix)/opt/zsh-git-prompt/zshrc.sh"
-ZSH_THEME_GIT_PROMPT_PREFIX=""
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[teal]%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}%{✔%G%}"
-ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[yellow]%}%{●%G%}"
-
 # Allow expansion in prompt
 setopt PROMPT_SUBST
 function aws_prompt() {
   case "$AWS_PROFILE" in
-    *-production) echo "%K{red}%F{white}AWS_PROFILE: ${AWS_PROFILE}%f%k" ;;
+    *-production|*-prod) echo "%K{red}%F{white}AWS_PROFILE: ${AWS_PROFILE}%f%k" ;;
     *) echo "%F{8}AWS_PROFILE: ${AWS_PROFILE:=<not set>}%f" ;;
   esac
 }
+
+function git_super_status() {
+  if [[ -n "$(git rev-parse --is-inside-work-tree)" ]]; then
+    echo "$(git branch | grep '\*' | cut -d ' ' -f2) $(echo $status | wc -l) changes"
+  fi
+}
+
 
 PROMPT='
 %F{yellow}%~ %F{8}|%F{6} $(git_super_status) %F{8}| node $(node --version) |%f $(aws_prompt)
