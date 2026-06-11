@@ -9,7 +9,6 @@ alias dev="cd ~/dev"
 alias g="git"
 
 # Live
-alias rg="rm -rf * .git && git init"
 alias livelog="watch --color --interval=1 --no-title 'git l --all'"
 alias livegit="while true; do clear; tree .git;sleep 1;done"
 alias livetree="while true; do clear; tree;sleep 1;done"
